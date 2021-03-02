@@ -11,6 +11,7 @@
 		3F50D18025ED4CB3005659BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D17F25ED4CB3005659BF /* ContentView.swift */; };
 		3F50D18225ED4CB7005659BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F50D18125ED4CB7005659BF /* Assets.xcassets */; };
 		3F50D18525ED4CB7005659BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F50D18425ED4CB7005659BF /* Preview Assets.xcassets */; };
+		3F50D18E25ED5283005659BF /* locationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D18D25ED5283005659BF /* locationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		3F50D18125ED4CB7005659BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F50D18425ED4CB7005659BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3F50D18625ED4CB7005659BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F50D18D25ED5283005659BF /* locationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				3F50D17D25ED4CB3005659BF /* Map_HackwichApp.swift */,
 				3F50D17F25ED4CB3005659BF /* ContentView.swift */,
+				3F50D18D25ED5283005659BF /* locationManager.swift */,
 				3F50D18125ED4CB7005659BF /* Assets.xcassets */,
 				3F50D18625ED4CB7005659BF /* Info.plist */,
 				3F50D18325ED4CB7005659BF /* Preview Content */,
@@ -140,6 +143,7 @@
 			files = (
 				3F50D18025ED4CB3005659BF /* ContentView.swift in Sources */,
 				3F50D17E25ED4CB3005659BF /* Map_HackwichApp.swift in Sources */,
+				3F50D18E25ED5283005659BF /* locationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
