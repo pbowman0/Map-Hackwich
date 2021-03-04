@@ -20,6 +20,7 @@ struct ContentView: View {
                                                     latitudeDelta: 0.05,
                                                     longitudeDelta: 0.05))
     @State private var places = [Place(name: "Barrington High School", coordinate: CLLocationCoordinate2D(latitude: 42.15704, longitude: -88.14812))]
+    
     var body: some View {
         Map(coordinateRegion: $region,
             interactionModes: .all,
@@ -31,36 +32,51 @@ struct ContentView: View {
                 Marker(name: place.name)
             }
         }
+        .onAppear {
+                   findLocation(name: "Springfield")
+        }
+    }
+    func findLocation(name: String) {
+        locationmanager.geocoder.geocodeAddressString(name) { (placemarks, error) in
+            guard placemarks != nil else {
+                print("Could not locate \(name)")
+                return
+            }
+            for placemark in placemarks!{
+                let place = Place(name: "\(placemark.name!),\(placemark.administrativeArea!)", coordinate: placemark.location!.coordinate)
+                places.append(place)
+            }
+        }
     }
 }
-        
-        struct ContentView_Previews: PreviewProvider {
-            static var previews: some View {
-                ContentView()
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+struct Place: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+}
+
+struct Marker: View {
+    var name: String
+    var body: some View {
+        ZStack {
+            VStack {
+                Spacer(minLength: 15)
+                Rectangle()
+                    .fill(Color.black)
+                    .frame(width: 30, height: 30, alignment: .center)
+                    .rotationEffect(.degrees(45))
             }
+            Capsule()
+                .fill(Color.red)
+                .frame(width: 200, height: 30, alignment: .center)
+            Text(name)
         }
-        
-        struct Place: Identifiable {
-            let id = UUID()
-            let name: String
-            let coordinate: CLLocationCoordinate2D
-        }
-        
-        struct Marker: View {
-            var name: String
-            var body: some View {
-                ZStack {
-                    VStack {
-                        Spacer(minLength: 15)
-                        Rectangle()
-                            .fill(Color.black)
-                            .frame(width: 30, height: 30, alignment: .center)
-                            .rotationEffect(.degrees(45))
-                    }
-                    Capsule()
-                        .fill(Color.red)
-                        .frame(width: 200, height: 30, alignment: .center)
-                    Text(name)
-                }
-            }
-        }
+    }
+}
